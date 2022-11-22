@@ -20,6 +20,6 @@
 	</languages>
 	<changelogurl>https://raw.githubusercontent.com/conseilgouz/plg_task_cgmonth_j4/master/plg_task_cgmonth_changelog.xml</changelogurl>
 	<updateservers>
-	<server type="extension" name="task cgmonth" priority="1">https://raw.githubusercontent.com/conseilgouz/plg_task_cgmonth_j4/master/plg_task_cgmonth_update.xml</server>
+	<server type="extension" name="task cgmonth" priority="1">https://raw.githubusercontent.com/conseilgouz/updates_github/master/plg_task_cgmonth_update.xml</server>
 	</updateservers>
 </extension>
