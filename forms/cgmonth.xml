@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+	<fields name="params">
+		<fieldset name="task_params">
+			<field
+			name="categories" type="category"	multiple="true"	extension="com_content" 
+			label="PLG_TASK_CGMONTH_CATEGORIES" description="PLG_TASK_CGMONTH_CATEGORIES_DESC" 
+			layout="joomla.form.field.list-fancy-select"
+			/>
+			<field 	name="datefield" type="sql"	multiple="false"
+				query="select f.id as id, f.title as value from #__fields f where f.context like 'com_content%' and f.state > 0"
+				key_field="id"	value_field="value"
+				label="PLG_TASK_CGMONTH_DATEFIELD" description="PLG_TASK_CGMONTH_DATEFIELD_DESC"	/>
+			<field 	name="monthfield" type="sql"	multiple="false"
+				query="select f.id as id, f.title as value from #__fields f where f.context like 'com_content%' and f.state > 0"
+				key_field="id"	value_field="value"
+				label="PLG_TASK_CGMONTH_DATEFIELD_FIELD" description="PLG_TASK_CGMONTH_DATEFIELD_FIELD_DESC"	/>
+		</fieldset>
+	</fields>
+</form>
