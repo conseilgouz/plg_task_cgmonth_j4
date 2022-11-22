@@ -18,8 +18,8 @@
 		<language tag="fr-FR">language/fr-FR/plg_task_cgmonth.ini</language>
 		<language tag="fr-FR">language/fr-FR/plg_task_cgmonth.sys.ini</language>
 	</languages>
-	<changelogurl>https://raw.githubusercontent.com/conseilgouz/plg_task_moisdudoc_j4/master/plg_task_cgmonth_changelog.xml</changelogurl>
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/plg_task_cgmonth_j4/master/plg_task_cgmonth_changelog.xml</changelogurl>
 	<updateservers>
-	<server type="extension" name="task cgmonth" priority="1">https://raw.githubusercontent.com/conseilgouz/plg_task_moisdudoc_j4/master/plg_task_cgmonth_update.xml</server>
+	<server type="extension" name="task cgmonth" priority="1">https://raw.githubusercontent.com/conseilgouz/plg_task_cgmonth_j4/master/plg_task_cgmonth_update.xml</server>
 	</updateservers>
 </extension>
