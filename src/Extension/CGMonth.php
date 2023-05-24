@@ -1,11 +1,12 @@
 <?php
 /** Plugin Task CGMonth
-* Version			: 1.0.0
+* Version			: 2.0.0
 * Package			: Joomla 4.x
-* copyright 		: Copyright (C) 2022 ConseilGouz. All rights reserved.
+* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 *
 */
+namespace ConseilGouz\Plugin\Task\CGMonth\Extension;
 
 defined('_JEXEC') or die;
 use Joomla\Registry\Registry;
@@ -19,13 +20,12 @@ use Joomla\Event\SubscriberInterface;
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 use Joomla\Component\Content\Site\Model\ArticlesModel;
 use Joomla\Component\Content\Site\Model\ArticleModel;
-use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+use Joomla\Component\Fields\Administrator\Model\FieldModel;
+use Joomla\Event\DispatcherInterface;
 
-class PlgTaskCGMonth extends CMSPlugin implements SubscriberInterface
+class CGMonth extends CMSPlugin implements SubscriberInterface
 {
 		use TaskPluginTrait;
-
-
 	/**
 	 * @var boolean
 	 * @since 4.1.0
@@ -44,6 +44,19 @@ class PlgTaskCGMonth extends CMSPlugin implements SubscriberInterface
 		],
 	];
 	protected $myparams;
+    /**
+     * Constructor.
+     *
+     * @param   DispatcherInterface  $dispatcher  The dispatcher
+     * @param   array                $config      An optional associative array of configuration settings
+     *
+     * @since   4.2.0
+     */
+    public function __construct(DispatcherInterface $dispatcher, array $config)
+    {
+        parent::__construct($dispatcher, $config);
+
+    }
 
 	/**
 	 * @inheritDoc
@@ -114,8 +127,6 @@ class PlgTaskCGMonth extends CMSPlugin implements SubscriberInterface
 	
     private function update_article_cgmonth($article)
 	{
-		$item = [];
-		$item['id'] = $article->id;
 		$this->update_field($article);
 		return true;
 	}
@@ -148,7 +159,7 @@ class PlgTaskCGMonth extends CMSPlugin implements SubscriberInterface
 		    if ($diff->format("%R") == '-') $date = "";// date passee
 		}
 		if ($date != "") {// on a une date
-            $model = BaseDatabaseModel::getInstance('Field', 'FieldsModel', array('ignore_request' => true));
+		    $model = new FieldModel(array('ignore_request' => true));
  	        $value = date("Y-m-01", strtotime($date));
             $model->setFieldValue($monthfield, $article->id, $value);
 		}

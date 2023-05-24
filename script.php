@@ -19,7 +19,7 @@ class plgtaskCGMonthInstallerScript
 	private $min_php_version         = '7.2';
 	private $name                    = 'Plugin CGMonth';
 	private $exttype                 = 'plugin';
-	private $extname                 = 'moisdudoc';
+	private $extname                 = 'cgmonth';
 	private $previous_version        = '';
 	private $dir           = null;
 	private $installerName = 'plgtaskcgmonthinstaller';
@@ -66,6 +66,14 @@ class plgtaskCGMonthInstallerScript
     }
 	private function postinstall_cleanup() {
 
+		$obsloteFiles = [sprintf("%s/plugins/task/%s/cgmonth.php", JPATH_SITE, $this->extname)];
+		foreach ($obsloteFiles as $file)
+		{
+			if (@is_file($file))
+			{
+				File::delete($file);
+			}
+		}
 		$db = Factory::getDbo();
         $conditions = array(
             $db->qn('type') . ' = ' . $db->q('plugin'),
