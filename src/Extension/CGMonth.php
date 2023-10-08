@@ -37,7 +37,7 @@ class CGMonth extends CMSPlugin implements SubscriberInterface
 	 * @since 4.1.0
 	 */
 	protected const TASKS_MAP = [
-		'cinema' => [
+		'cgmonth' => [
 			'langConstPrefix' => 'PLG_TASK_CGMONTH',
 			'form'            => 'cgmonth',
 			'method'          => 'cgmonth',
